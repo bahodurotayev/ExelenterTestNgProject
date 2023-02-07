@@ -159,4 +159,66 @@ public class CommonMethods{
             System.out.println("ScreenShot is not taken");
         }
     }
+    public static void scrollToParagraph(int index, By by) {
+        String script = "window.scrollTo(0, document.body.scrollHeight)";
+        while (getNumberOfParagraphs(by) < index) {
+            jsExecutor().executeScript(script); // scroll down by one <p>
+        }
+        System.out.println("Total paragraphs: " + getNumberOfParagraphs(by));
+    }
+
+    public static int getNumberOfParagraphs(By by) {
+        //List<WebElement> paragraphs = driver.findElements(By.className("jscroll-added"));
+        return driver.findElements(by).size();
+    }
+
+    public static JavascriptExecutor jsExecutor() {
+        return (JavascriptExecutor) driver;
+    }
+
+    /**
+     * Method performs simple click based on Javascript. Use this if regular Selenium click fails.
+     *
+     * @param element WebElement that needs to be clicked on.
+     */
+    public static void jsClick(WebElement element) {
+        jsExecutor().executeScript("arguments[0].click();", element);
+    }
+
+    /**
+     * Method will scroll to the given element
+     *
+     * @param element WebElement to get scrolled to
+     */
+    public static void scrollToElement(WebElement element) {
+        jsExecutor().executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    /**
+     * Method will scroll both vertically (left & right) and horizontally (up & down) based on given pixels.
+     *
+     * @param horizontalPixel int
+     * @param verticalPixel   int
+     */
+    public static void scrollToElement(int horizontalPixel, int verticalPixel) {
+        jsExecutor().executeScript("window.scrollBy(" + horizontalPixel + "," + verticalPixel + ")");
+    }
+
+    /**
+     * Method will scroll down in accordance with the passed pixel as parameter
+     *
+     * @param pixel int
+     */
+    public static void scrollDown(int pixel) {
+        jsExecutor().executeScript("window.scrollBy(0," + pixel + ")");  // "window.scrollBy(0,500)"
+    }
+
+    /**
+     * Method will scroll up based on given pixel
+     *
+     * @param pixel int
+     */
+    public static void scrollUp(int pixel) {
+        jsExecutor().executeScript("window.scrollBy(0,-" + pixel + ")"); // "window.scrollBy(0,-500)"
+    }
 }
