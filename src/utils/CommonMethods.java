@@ -1,4 +1,5 @@
 package utils;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.io.FileHandler;
@@ -11,11 +12,8 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
-/**
- *  Note: This is our BANK, for reusing the methods elsewhere in the framework when we need it.
- *   We store all common methods for usability here. This will help us to avoid DRY principle of programming/coding.
- */
-import static utils.BaseClass.*;
+
+import static utils.BaseClass.driver;
 public class CommonMethods{
     /**
      * Method will switch focus to next window/tab based on the window title/name

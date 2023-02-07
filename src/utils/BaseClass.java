@@ -9,7 +9,7 @@ import java.time.Duration;
 public class BaseClass extends CommonMethods {
     public static WebDriver driver;
 
-    public static void setUp(String url){
+    public static void setUp(){
         ConfigReader.loadProperties(Constant.CONFIGURATION_FILEPATH);
         switch (ConfigReader.getProperties("chrome").toLowerCase()) {
             case "chrome" -> {
@@ -26,7 +26,7 @@ public class BaseClass extends CommonMethods {
         //driver.get(ConfigReader.getProperties("url"));
         //driver.get("https://selenium08.blogspot.com/2019/11/dropdown.html");
 
-        driver.get(url);
+        driver.get(ConfigReader.getProperties("url"));
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constant.IMPLICIT_WAIT_TIME));
     }
