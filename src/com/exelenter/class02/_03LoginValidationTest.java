@@ -1,5 +1,6 @@
 package com.exelenter.class02;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -10,8 +11,9 @@ import utils.ConfigReader;
 import static utils.BaseClass.*;
 
 
+public class _03LoginValidationTest {
 
-public class _01LoginValidationTest {
+    LoginPage loginPage = new LoginPage();
 
     @BeforeTest
     public void openBrowser(){
@@ -25,24 +27,13 @@ public class _01LoginValidationTest {
     @Test
     public void titleValidation(){
         String expectedValue = "Exelenter Project";
-        String  actualValue = driver.getTitle();
-
-        if (actualValue.equals(expectedValue)){
-            System.out.println("Title does match");
-        }
-        else {
-            System.out.println("Title does not match");
-        }
+        Assert.assertEquals(driver.getTitle(), expectedValue, "Title does not match");
     }
 
-    @Test
+    @Test(dependsOnMethods = "titleValidation")
     void logoValidation(){
         LoginPage loginPage = new LoginPage();
-        if(loginPage.homepageLogo.isDisplayed()){
-            System.out.println("waaalaaa  Logo is displayed");
-        }else {
-            System.out.println("Logo is not displayed");
-        }
+        Assert.assertTrue(loginPage.homepageLogo.isDisplayed(), "Logo Homepage is not displayed");
     }
     @Test
     void validLoginTest(){
@@ -55,10 +46,6 @@ public class _01LoginValidationTest {
         send_Text(loginPage.password, ConfigReader.getProperties("password"));
         click_clickAbility(loginPage.loginBtn);
 
-        if(dashboardPage.welcome.getText().equals(expectedValue)){
-            System.out.println("Successfully logged in");
-        }else {
-            System.out.println("You not logged in");
-        }
+        Assert.assertEquals(dashboardPage.welcome.getText(), expectedValue, "You are not logged in");
     }
 }
