@@ -20,4 +20,10 @@ public class LoginPage extends BaseClass {
 
     @FindBy(css = "#divLogo img")
     public WebElement homepageLogo;
+
+    @FindBy(id = "spanMessage")
+    public WebElement invalidCredential;
+
+    @FindBy(id = "spanMessage")
+    public WebElement emptyPassword;
 }
