@@ -2,8 +2,6 @@ package tests;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.AddEmployeePage;
-import pages.PIMPage;
 import utils.PageInitializer;
 
 import static utils.BaseClass.*;
@@ -14,7 +12,6 @@ public class AddEmployeeTest {
     void openBrowser(){
         setUp();
         PageInitializer.initialize();
-
     }
 
     @AfterMethod
@@ -24,10 +21,10 @@ public class AddEmployeeTest {
 
     @Test
     void addEmployeeTest(){
-        loginPage.login_To_Website();
+        loginPage.login_To_Website("user", "password");
         pimPage.goToAddEmployee();
         System.out.println("New employee ID is : " + addEmployeePage.employeeId.getAttribute("value"));
-        addEmployeePage.add_Employee();
+        addEmployeePage.add_Employee("firstname", "lastname", "picFilePath");
         click_clickAbility(pimPage.employeeList);
 
     }

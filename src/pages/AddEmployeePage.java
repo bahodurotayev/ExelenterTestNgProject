@@ -8,7 +8,7 @@ import utils.ConfigReader;
 import static utils.BaseClass.*;
 public class AddEmployeePage {
     public AddEmployeePage() {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(id = "firstName")
@@ -26,10 +26,10 @@ public class AddEmployeePage {
     @FindBy(id = "employeeId")
     public WebElement employeeId;
 
-    public void add_Employee(){
-        send_Text(firstName, ConfigReader.getProperties("firstname"));
-        send_Text(lastName, ConfigReader.getProperties("lastname"));
-        send_Text(photoFile, ConfigReader.getProperties("picFilePath"));
+    public void add_Employee(String empFirstname, String empLastname, String filePath) {
+        send_Text(firstName, ConfigReader.getProperties(empFirstname));
+        send_Text(lastName, ConfigReader.getProperties(empLastname));
+        send_Text(photoFile, ConfigReader.getProperties(filePath));
         click_clickAbility(btnSave);
     }
 }

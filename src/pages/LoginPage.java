@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import utils.BaseClass;
 import utils.ConfigReader;
 
+
 public class LoginPage extends BaseClass {
     public LoginPage() {
         PageFactory.initElements(driver, this);
@@ -28,10 +29,9 @@ public class LoginPage extends BaseClass {
     @FindBy(id = "spanMessage")
     public WebElement emptyPassword;
 
-    public void login_To_Website() {
-
-        send_Text(username, ConfigReader.getProperties("user"));
-        send_Text(password, ConfigReader.getProperties("password"));
+    public void login_To_Website(String user, String pswd) {
+        send_Text(username, ConfigReader.getProperties(user));
+        send_Text(password, ConfigReader.getProperties(pswd));
         click_clickAbility(loginBtn);
     }
 }

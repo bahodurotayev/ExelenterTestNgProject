@@ -20,26 +20,20 @@ public class LoginTest {
 
     @Test
     void validAdminLogin(){
-        send_Text(loginPage.username, ConfigReader.getProperties("user"));
-        send_Text(loginPage.password, ConfigReader.getProperties("password"));
-        click_clickAbility(loginPage.loginBtn);
+        loginPage.login_To_Website("user", "password");
         Assert.assertEquals(dashboardPage.welcome.getText(), "Welcome Admin","Not able to log in");
     }
 
     @Test
     void validUserInvalidPassword(){
 
-        send_Text(loginPage.username, ConfigReader.getProperties("user"));
-        send_Text(loginPage.password, "asda");
-        click_clickAbility(loginPage.loginBtn);
+        loginPage.login_To_Website("user", "123");
         Assert.assertEquals(loginPage.invalidCredential.getText(), "Invalid credentials", "Password should not match");
     }
 
     @Test
     void validUserEmptyPassword(){
-        send_Text(loginPage.username, ConfigReader.getProperties("user"));
-        send_Text(loginPage.password, "");
-        click_clickAbility(loginPage.loginBtn);
+        loginPage.login_To_Website("user", " ");
         Assert.assertEquals(loginPage.emptyPassword.getText(), "Password cannot be empty", "Password should be empty");
     }
 }
