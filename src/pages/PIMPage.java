@@ -9,6 +9,18 @@ public class PIMPage {
     public PIMPage() {
         PageFactory.initElements(driver,this);
     }
-    @FindBy(id = "#menu_pim_viewPimModule")
+    @FindBy(id = "menu_pim_viewPimModule")
     public WebElement  pimSection;
+
+    @FindBy(id = "menu_pim_addEmployee")
+    public WebElement addEmployee;
+
+    @FindBy(id = "menu_pim_viewEmployeeList")
+    public WebElement employeeList;
+
+
+    public void goToAddEmployee(){
+        click_clickAbility(pimSection);
+        click_clickAbility(addEmployee);
+    }
 }
