@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-09T19:47:19 EST" name="Default Suite" finished-at="2023-02-09T19:47:28 EST" duration-ms="9011">
+  <suite started-at="2023-02-09T22:06:04 EST" name="All Test Suite" finished-at="2023-02-09T22:06:11 EST" duration-ms="7113">
     <groups>
     </groups>
-    <test started-at="2023-02-09T19:47:19 EST" name="ExelenterTestNgProject" finished-at="2023-02-09T19:47:28 EST" duration-ms="9011">
+    <test started-at="2023-02-09T22:06:04 EST" name="C:/Users/tjkba/IdeaProjects/ExelenterTestNGProject/src/tests/AddEmployeeTest.java" finished-at="2023-02-09T22:06:11 EST" duration-ms="7113">
       <class name="tests.AddEmployeeTest">
-        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.AddEmployeeTest@25d250c6]" started-at="2023-02-09T19:47:19 EST" name="openBrowser" finished-at="2023-02-09T19:47:21 EST" duration-ms="2365" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.AddEmployeeTest@20d28811]" started-at="2023-02-09T22:06:04 EST" name="setUp" finished-at="2023-02-09T22:06:06 EST" duration-ms="1943" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- openBrowser -->
-        <test-method signature="addEmployeeTest()[pri:0, instance:tests.AddEmployeeTest@25d250c6]" started-at="2023-02-09T19:47:21 EST" name="addEmployeeTest" finished-at="2023-02-09T19:47:26 EST" duration-ms="4476" status="PASS">
+        </test-method> <!-- setUp -->
+        <test-method signature="addEmployeeTest()[pri:0, instance:tests.AddEmployeeTest@20d28811]" started-at="2023-02-09T22:06:06 EST" name="addEmployeeTest" finished-at="2023-02-09T22:06:08 EST" duration-ms="2951" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addEmployeeTest -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.AddEmployeeTest@25d250c6]" started-at="2023-02-09T19:47:26 EST" name="closeBrowser" finished-at="2023-02-09T19:47:28 EST" duration-ms="2145" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.AddEmployeeTest@20d28811]" started-at="2023-02-09T22:06:08 EST" name="tearDown" finished-at="2023-02-09T22:06:11 EST" duration-ms="2192" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- closeBrowser -->
+        </test-method> <!-- tearDown -->
       </class> <!-- tests.AddEmployeeTest -->
-    </test> <!-- ExelenterTestNgProject -->
-  </suite> <!-- Default Suite -->
+    </test> <!-- C:/Users/tjkba/IdeaProjects/ExelenterTestNGProject/src/tests/AddEmployeeTest.java -->
+  </suite> <!-- All Test Suite -->
 </testng-results>

@@ -3,20 +3,13 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.BaseClass;
 import utils.ConfigReader;
 import static utils.BaseClass.*;
 import static utils.PageInitializer.*;
 
-public class LoginTest {
+public class LoginTest extends BaseClass {
 
-    @BeforeMethod
-    void openBrowser(){
-        setUp();
-    }
-    @AfterMethod
-    void quiteBrowser(){
-        tearDown();
-    }
 
     @Test
     void validAdminLogin(){
@@ -27,13 +20,17 @@ public class LoginTest {
     @Test
     void validUserInvalidPassword(){
 
-        loginPage.login_To_Website("user", "123");
+        send_Text(loginPage.username, ConfigReader.getProperties("user"));
+        send_Text(loginPage.password, "asda");
+        click_clickAbility(loginPage.loginBtn);
         Assert.assertEquals(loginPage.invalidCredential.getText(), "Invalid credentials", "Password should not match");
     }
 
     @Test
     void validUserEmptyPassword(){
-        loginPage.login_To_Website("user", " ");
+        send_Text(loginPage.username, ConfigReader.getProperties("user"));
+        send_Text(loginPage.password, "");
+        click_clickAbility(loginPage.loginBtn);
         Assert.assertEquals(loginPage.emptyPassword.getText(), "Password cannot be empty", "Password should be empty");
     }
 }

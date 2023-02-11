@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="ExelenterTestNgProject(failed)">
     <classes>
-      <class name="tests.AddEmployeeTest">
+      <class name="tests.LoginTest">
         <methods>
-          <include name="addEmployeeTest"/>
-          <include name="openBrowser"/>
-          <include name="closeBrowser"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="validUserInvalidPassword"/>
         </methods>
-      </class> <!-- tests.AddEmployeeTest -->
+      </class> <!-- tests.LoginTest -->
     </classes>
   </test> <!-- ExelenterTestNgProject(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->

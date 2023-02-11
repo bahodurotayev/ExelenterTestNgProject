@@ -2,7 +2,7 @@ package utils;
 
 import pages.*;
 
-public class PageInitializer extends BaseClass{
+public class PageInitializer extends CommonMethods{
 
     public static AddEmployeePage addEmployeePage;
     public static DashboardPage dashboardPage;
@@ -18,5 +18,4 @@ public class PageInitializer extends BaseClass{
         loginPage = new LoginPage();
         pimPage = new PIMPage();
     }
-
 }
