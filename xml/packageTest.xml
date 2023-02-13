@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/tjkba/IdeaProjects/ExelenterTestNGProject/src/com/exelenter/class02">
+        <packages>
+            <package name="com.exelenter.class03"></package>
+        </packages>
+        <classes>
+            <class name="com.exelenter.class02._01LoginValidationTest">
+                <methods>
+                    <include name="titleValidation"/>
+                    <include name="logoValidation"/>
+                    <include name="validLoginTest"/>
+                </methods>
+            </class>
+            <class name="com.exelenter.class02._02AssertDemo">
+                <methods>
+                    <include name="positiveLoginTest"/>
+                    <include name="negativeLoginTest"/>
+                </methods>
+            </class>
+            <class name="com.exelenter.class02._03LoginValidationTest">
+                <methods>
+                    <include name="titleValidation"/>
+                    <include name="logoValidation"/>
+                    <include name="validLoginTest"/>
+                </methods>
+            </class>
+            <class name="com.exelenter.class02._04Task1">
+                <methods>
+                    <include name="validLoginTest"/>
+                    <include name="verifyLogoDashboard"/>
+                </methods>
+            </class>
+            <class name="com.exelenter.class02._05SoftAssertTest">
+                <methods>
+                    <include name="softAssertDemo"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
