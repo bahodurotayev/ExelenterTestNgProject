@@ -4,6 +4,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import static utils.BaseClass.*;
+import static utils.CommonMethods.click_clickAbility;
 
 public class PIMPage {
     public PIMPage() {

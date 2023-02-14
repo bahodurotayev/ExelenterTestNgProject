@@ -6,6 +6,9 @@ import org.openqa.selenium.support.PageFactory;
 import utils.BaseClass;
 import utils.ConfigReader;
 
+import static utils.CommonMethods.click_clickAbility;
+import static utils.CommonMethods.send_Text;
+
 
 public class LoginPage extends BaseClass {
     public LoginPage() {

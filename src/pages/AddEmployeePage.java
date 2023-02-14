@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 import utils.ConfigReader;
 
 import static utils.BaseClass.*;
+import static utils.CommonMethods.*;
+
 public class AddEmployeePage {
     public AddEmployeePage() {
         PageFactory.initElements(driver, this);
