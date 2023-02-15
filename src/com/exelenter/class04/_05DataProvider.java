@@ -26,7 +26,7 @@ public class _05DataProvider extends BaseClass {
         click_clickAbility(addEmployeePage.btnSave);
 
         wait_visibility(personalDetailedPage.personalDetailsForm);
-        String actualValue = personalDetailedPage.employeeId.getAttribute("value");
+        String actualValue = personalDetailedPage.personalEmployeeId.getAttribute("value");
 
         Assert.assertEquals(actualValue, expectedValue,"Employee ID does not match");
     }

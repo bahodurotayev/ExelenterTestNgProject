@@ -3,6 +3,9 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
+
 import static utils.BaseClass.*;
 
 public class EmployeeListPage {
@@ -15,5 +18,21 @@ public class EmployeeListPage {
 
     @FindBy(id = "empsearch_id")
     public WebElement employeeId;
+
+    @FindBy(id = "searchBtn")
+    public WebElement searchBtn;
+
+    @FindBy(id = "ohrmList_chkSelectAll")
+    public WebElement selectAllId;
+
+    @FindBy(id = "btnDelete")
+    public WebElement btnDelete;
+
+    @FindBy(id = "dialogDeleteBtn")
+    public WebElement confirmDeleteBtn;
+
+    @FindBy(xpath = "//li[@class='ac_even ac_over']")
+    public List<WebElement> searchEmployeeList;
+
 
 }

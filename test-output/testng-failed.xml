@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="ExelenterTestNgProject(failed)">
     <classes>
-      <class name="com.exelenter.class04._05DataProvider">
+      <class name="com.exelenter.class04._06HW">
         <methods>
-          <include name="login"/>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="addEmployees" invocation-numbers="0 1 2"/>
+          <include name="deleteUser"/>
         </methods>
-      </class> <!-- com.exelenter.class04._05DataProvider -->
+      </class> <!-- com.exelenter.class04._06HW -->
     </classes>
   </test> <!-- ExelenterTestNgProject(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->

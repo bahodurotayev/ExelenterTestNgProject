@@ -24,4 +24,9 @@ public class PIMPage {
         click_clickAbility(pimSection);
         click_clickAbility(addEmployee);
     }
+
+    public void goToEmployeeList(){
+        click_clickAbility(pimSection);
+        click_clickAbility(employeeList);
+    }
 }

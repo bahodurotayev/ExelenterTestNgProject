@@ -32,7 +32,7 @@ public class BaseClass extends CommonMethods {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constant.IMPLICIT_WAIT_TIME));
         initialize();
     }
-    @AfterMethod
+    //@AfterMethod
     public static void tearDown(){
         try {
             Thread.sleep(2000);
