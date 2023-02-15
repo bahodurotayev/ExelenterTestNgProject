@@ -7,21 +7,22 @@ import utils.ConfigReader;
 
 import java.util.ArrayList;
 
-import static utils.BaseClass.*;
+import static pages.EmployeeListPage.*;
 import static utils.PageInitializer.*;
 
 public class _06HW extends BaseClass {
     @Test(dataProvider ="addEmployee")
     void addEmployees(String name, String lastName, String randomPassword){
-        //String passCode = randomStrongPassWord();
+
         loginPage.login_To_Website("user", "password");
+
         pimPage.goToAddEmployee();
 
         send_Text(addEmployeePage.firstName, name);
         send_Text(addEmployeePage.lastName, lastName);
         send_Text(addEmployeePage.photoFile, ConfigReader.getProperties("picFilePath"));
 
-        System.out.println(addEmployeePage.employeeId.getAttribute("value"));
+        //System.out.println(addEmployeePage.employeeId.getAttribute("value"));
 
         click_clickAbility(addEmployeePage.chkLogin);
 
@@ -31,25 +32,29 @@ public class _06HW extends BaseClass {
         send_Text(addEmployeePage.confirmPassword, randomPassword);
 
         addEmployeePage.confirmPasswords();
+
         click_clickAbility(addEmployeePage.btnSave);
         waitSecond(2);
 
         Assert.assertEquals(personalDetailedPage.personalEmployeeName.getAttribute("value"), name, "Employee with " + name + " did not add");
-        screenshot(personalDetailedPage.personalDetailsForm, name);
+        screenshotFull(name);
 
-        pimPage.goToEmployeeList();
-        selectValue(employeeListPage.searchEmployeeList, name);
-        click_clickAbility(employeeListPage.searchBtn);
+    }
+
+    @Test(dependsOnMethods = "addEmployees", dataProvider = "addEmployee")
+    void deleteUsers(String name, String lastName, String password){
+        loginPage.login_To_Website("user", "password");
+        deleteEmployeeFromList(name, lastName);
     }
 
     @DataProvider(name = "addEmployee")
     Object[][] data(){
         Object[][] userData = {
                 {"Johnny","Rip", randomStrongPassWord()},
-                /*{"Beth","Dutton", randomStrongPassWord()},
+                {"Beth","Dutton", randomStrongPassWord()},
                 {"Carl","Roe", randomStrongPassWord()},
                 {"Ali","Vali", randomStrongPassWord()},
-                {"Taylor","Donn", randomStrongPassWord()},*/
+                {"Taylor","Donn", randomStrongPassWord()},
         };
         return userData;
     }

@@ -32,8 +32,9 @@ public class CommonMethods{
     }
 
     public static void send_Text(WebElement element, String string){
-        element.clear();
-        element.sendKeys(string);
+        wait_element().until(ExpectedConditions.elementToBeClickable(element)).clear();
+        wait_element().until(ExpectedConditions.elementToBeClickable(element)).sendKeys(string);
+
     }
 
     public static void click_Button(WebElement element){

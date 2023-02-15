@@ -9,7 +9,7 @@ public class _02DataProvider {
 
     @Test(dataProvider = "user")
     void printData(String firstName, String lastName, int age){
-        System.out.println(firstName + " " + lastName + " " + age);
+        System.out.println(firstName + lastName);
 
     }
     @DataProvider
