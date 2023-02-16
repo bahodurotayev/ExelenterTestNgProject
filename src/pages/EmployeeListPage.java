@@ -40,8 +40,8 @@ public class EmployeeListPage {
     @FindBy(css = "#resultTable td")
     public WebElement noEmployeeRecordFound;
 
-    @FindBy(css = "#resultTable tbody tr")
-    public List<WebElement> employeesRowTable;
+    @FindBy(xpath = "//table[@id='resultTable']//input[@type='checkbox']")
+    public List<WebElement> employeesCheckbox;
 
     public void confirmNoRecordFound(){
         Assert.assertEquals(noEmployeeRecordFound.getText(), "No Records Found", "Same user was found");
@@ -49,17 +49,14 @@ public class EmployeeListPage {
 
     public static void deleteEmployeeFromList(String name, String lastName) {
         pimPage.goToEmployeeList();
-
-        if(employeeListPage.employeesRowTable.isEmpty()){
-           tearDown();
-        }else {
-            waitSecond(1);
-            send_Text(employeeListPage.employeeName, name + " " + lastName);
-            click_clickAbility(employeeListPage.searchBtn);
+        waitSecond(1);
+        send_Text(employeeListPage.employeeName, name + " " + lastName);
+        click_clickAbility(employeeListPage.searchBtn);
+        if(employeeListPage.employeesCheckbox.size() != 1){
             click_clickAbility(employeeListPage.selectAllId);
             click_clickAbility(employeeListPage.btnDelete);
             click_clickAbility(employeeListPage.confirmDeleteBtn);
-            employeeListPage.confirmNoRecordFound();
         }
+        employeeListPage.confirmNoRecordFound();
     }
 }
