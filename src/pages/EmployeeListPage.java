@@ -40,18 +40,26 @@ public class EmployeeListPage {
     @FindBy(css = "#resultTable td")
     public WebElement noEmployeeRecordFound;
 
+    @FindBy(css = "#resultTable tbody tr")
+    public List<WebElement> employeesRowTable;
+
     public void confirmNoRecordFound(){
         Assert.assertEquals(noEmployeeRecordFound.getText(), "No Records Found", "Same user was found");
     }
 
     public static void deleteEmployeeFromList(String name, String lastName) {
         pimPage.goToEmployeeList();
-        waitSecond(1);
-        send_Text(employeeListPage.employeeName, name + " " + lastName);
-        click_clickAbility(employeeListPage.searchBtn);
-        click_clickAbility(employeeListPage.selectAllId);
-        click_clickAbility(employeeListPage.btnDelete);
-        click_clickAbility(employeeListPage.confirmDeleteBtn);
-        employeeListPage.confirmNoRecordFound();
+
+        if(employeeListPage.employeesRowTable.isEmpty()){
+           tearDown();
+        }else {
+            waitSecond(1);
+            send_Text(employeeListPage.employeeName, name + " " + lastName);
+            click_clickAbility(employeeListPage.searchBtn);
+            click_clickAbility(employeeListPage.selectAllId);
+            click_clickAbility(employeeListPage.btnDelete);
+            click_clickAbility(employeeListPage.confirmDeleteBtn);
+            employeeListPage.confirmNoRecordFound();
+        }
     }
 }

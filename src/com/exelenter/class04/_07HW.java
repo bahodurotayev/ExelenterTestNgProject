@@ -1,46 +1,16 @@
 package com.exelenter.class04;
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.BaseClass;
 import utils.ConfigReader;
 
-import java.util.ArrayList;
-
-import static pages.EmployeeListPage.*;
+import static pages.EmployeeListPage.deleteEmployeeFromList;
 import static utils.PageInitializer.*;
 
-public class _06HW extends BaseClass {
-    @Test(dataProvider ="addEmployee")
-    void addEmployees(String name, String lastName, String randomPassword){
-
-        loginPage.login_To_Website("user", "password");
-
-        pimPage.goToAddEmployee();
-
-        send_Text(addEmployeePage.firstName, name);
-        send_Text(addEmployeePage.lastName, lastName);
-        send_Text(addEmployeePage.photoFile, ConfigReader.getProperties("picFilePath"));
-
-        //System.out.println(addEmployeePage.employeeId.getAttribute("value"));
-
-        click_clickAbility(addEmployeePage.chkLogin);
-
-        send_Text(addEmployeePage.userName, name.substring(0,3) + lastName.substring(0, 3));
-
-        send_Text(addEmployeePage.userPassword, randomPassword);
-        send_Text(addEmployeePage.confirmPassword, randomPassword);
-
-        addEmployeePage.confirmPasswords();
-
-        click_clickAbility(addEmployeePage.btnSave);
-        waitSecond(2);
-
-        Assert.assertEquals(personalDetailedPage.personalEmployeeName.getAttribute("value"), name, "Employee with " + name + " did not add");
-        screenshotFull(name);
-
-    }
-    @Test(dependsOnMethods = "addEmployees", dataProvider = "addEmployee")
+public class _07HW extends BaseClass {
+    @Test(dataProvider = "addEmployee")
     void deleteUsers(String name, String lastName, String password){
         loginPage.login_To_Website("user", "password");
         deleteEmployeeFromList(name, lastName);
