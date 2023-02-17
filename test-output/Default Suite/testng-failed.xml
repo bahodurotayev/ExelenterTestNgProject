@@ -6,8 +6,8 @@
       <class name="com.exelenter.class04._06HW">
         <methods>
           <include name="tearDown"/>
-          <include name="addEmployees" invocation-numbers="4"/>
           <include name="setUp"/>
+          <include name="addEmployees" invocation-numbers="4"/>
         </methods>
       </class> <!-- com.exelenter.class04._06HW -->
     </classes>

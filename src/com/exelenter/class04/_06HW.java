@@ -19,17 +19,23 @@ public class _06HW extends BaseClass {
         pimPage.goToAddEmployee();
 
         send_Text(addEmployeePage.firstName, name);
+        System.out.println("First name : " + name);
         send_Text(addEmployeePage.lastName, lastName);
+        System.out.println("Last name  : " + lastName);
         send_Text(addEmployeePage.photoFile, ConfigReader.getProperties("picFilePath"));
 
-        //System.out.println(addEmployeePage.employeeId.getAttribute("value"));
+        String employeeIdAttribute = addEmployeePage.employeeId.getAttribute("value");
 
         click_clickAbility(addEmployeePage.chkLogin);
 
-        send_Text(addEmployeePage.userName, name.substring(0,3) + lastName.substring(0, 3));
+        String username = name.substring(0, 3) + lastName.substring(0, 3);
+        send_Text(addEmployeePage.userName, username);
+        System.out.println("Username   : " +username);
+        System.out.println("User Id    : " + addEmployeePage.employeeId.getAttribute("value"));
 
         send_Text(addEmployeePage.userPassword, randomPassword);
         send_Text(addEmployeePage.confirmPassword, randomPassword);
+        System.out.println("Password   : " + randomPassword);
 
         addEmployeePage.confirmPasswords();
 
@@ -43,14 +49,15 @@ public class _06HW extends BaseClass {
             boolean headerDisplayed = personalDetailedPage.personalDetailsForm.isDisplayed();
             if(headerDisplayed){
                 Assert.assertEquals(personalDetailedPage.personalEmployeeName.getAttribute("value"), name, "Employee with " + name + " did not add");
+                System.out.println("User successfully added");
                 screenshotFull(name);
             }
         }catch (Exception exception){
-            exception.printStackTrace();
-            System.out.println("Employee is not added username or Id is already exist");
+            //exception.printStackTrace();
+            System.out.println("Employee is not added " + username +" or " + employeeIdAttribute + " is already exist");
             Assert.fail();
             //2way
-            //throw new RuntimeException("Employee is not added username or Id is already exist");
+            //throw new RuntimeException("Employee is not added " + username +" or " + employeeIdAttribute + " is already exist");
         }
 
     }
