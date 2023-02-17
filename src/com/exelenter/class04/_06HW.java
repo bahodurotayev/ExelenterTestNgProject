@@ -36,8 +36,22 @@ public class _06HW extends BaseClass {
         click_clickAbility(addEmployeePage.btnSave);
         waitSecond(2);
 
-        Assert.assertEquals(personalDetailedPage.personalEmployeeName.getAttribute("value"), name, "Employee with " + name + " did not add");
+        /*Assert.assertEquals(personalDetailedPage.personalEmployeeName.getAttribute("value"), name, "Employee with " + name + " did not add");
         screenshotFull(name);
+*/
+        try {
+            boolean headerDisplayed = personalDetailedPage.personalDetailsForm.isDisplayed();
+            if(headerDisplayed){
+                Assert.assertEquals(personalDetailedPage.personalEmployeeName.getAttribute("value"), name, "Employee with " + name + " did not add");
+                screenshotFull(name);
+            }
+        }catch (Exception exception){
+            exception.printStackTrace();
+            System.out.println("Employee is not added username or Id is already exist");
+            Assert.fail();
+            //2way
+            //throw new RuntimeException("Employee is not added username or Id is already exist");
+        }
 
     }
     @Test(dependsOnMethods = "addEmployees", dataProvider = "addEmployee")
@@ -45,12 +59,12 @@ public class _06HW extends BaseClass {
         loginPage.login_To_Website("user", "password");
         deleteEmployeeFromList(name, lastName);
     }
-
     @DataProvider(name = "addEmployee")
     Object[][] data(){
         Object[][] userData = {
                 {"Johnny","Rip", randomStrongPassWord()},
                 {"Beth","Dutton", randomStrongPassWord()},
+                {"Ali","Vali", randomStrongPassWord()},
                 {"Carl","Roe", randomStrongPassWord()},
                 {"Ali","Vali", randomStrongPassWord()},
                 {"Taylor","Donn", randomStrongPassWord()},
