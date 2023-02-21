@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="ExelenterTestNgProject(failed)">
     <classes>
-      <class name="com.exelenter.class04._06HW2">
+      <class name="javaTask.Palindrome">
         <methods>
-          <include name="deleteUsers" invocation-numbers="0 1 2 3"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
+          <include name="Palindrome"/>
         </methods>
-      </class> <!-- com.exelenter.class04._06HW2 -->
+      </class> <!-- javaTask.Palindrome -->
     </classes>
   </test> <!-- ExelenterTestNgProject(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->

@@ -1,149 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="5" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-20T19:35:15 EST" name="Default Suite" finished-at="2023-02-20T19:35:48 EST" duration-ms="32917">
+  <suite started-at="2023-02-20T20:01:11 EST" name="Default Suite" finished-at="2023-02-20T20:01:11 EST" duration-ms="30">
     <groups>
     </groups>
-    <test started-at="2023-02-20T19:35:15 EST" name="ExelenterTestNgProject" finished-at="2023-02-20T19:35:48 EST" duration-ms="32917">
-      <class name="com.exelenter.class04._06HW2">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.exelenter.class04._06HW2@4386f16]" started-at="2023-02-20T19:35:16 EST" name="setUp" finished-at="2023-02-20T19:35:18 EST" duration-ms="2514" status="PASS">
+    <test started-at="2023-02-20T20:01:11 EST" name="ExelenterTestNgProject" finished-at="2023-02-20T20:01:11 EST" duration-ms="30">
+      <class name="javaTask.Palindrome">
+        <test-method signature="isNumberPalindrome()[pri:0, instance:javaTask.Palindrome@6ce139a4]" started-at="2023-02-20T20:01:11 EST" name="isNumberPalindrome" finished-at="2023-02-20T20:01:11 EST" duration-ms="5" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="deleteUsers(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.exelenter.class04._06HW2@4386f16]" started-at="2023-02-20T19:35:18 EST" name="deleteUsers" data-provider="readFromExcel" finished-at="2023-02-20T19:35:23 EST" duration-ms="4497" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[William]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Adams]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[willadams12]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[willAdam_@2023]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteUsers -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.exelenter.class04._06HW2@4386f16]" started-at="2023-02-20T19:35:23 EST" name="tearDown" finished-at="2023-02-20T19:35:25 EST" duration-ms="2149" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.exelenter.class04._06HW2@4386f16]" started-at="2023-02-20T19:35:25 EST" name="setUp" finished-at="2023-02-20T19:35:26 EST" duration-ms="1333" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="deleteUsers(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.exelenter.class04._06HW2@4386f16]" started-at="2023-02-20T19:35:26 EST" name="deleteUsers" data-provider="readFromExcel" finished-at="2023-02-20T19:35:31 EST" duration-ms="4263" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Elizabeth]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Lee]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[elizabethlee12]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[eliLee_@2023]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteUsers -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.exelenter.class04._06HW2@4386f16]" started-at="2023-02-20T19:35:31 EST" name="tearDown" finished-at="2023-02-20T19:35:33 EST" duration-ms="2143" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.exelenter.class04._06HW2@4386f16]" started-at="2023-02-20T19:35:33 EST" name="setUp" finished-at="2023-02-20T19:35:34 EST" duration-ms="1244" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="deleteUsers(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.exelenter.class04._06HW2@4386f16]" started-at="2023-02-20T19:35:34 EST" name="deleteUsers" data-provider="readFromExcel" finished-at="2023-02-20T19:35:39 EST" duration-ms="4625" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Tyler]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Nguyen]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[tylernguyen12]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[tylerNguyen_@2023]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteUsers -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.exelenter.class04._06HW2@4386f16]" started-at="2023-02-20T19:35:39 EST" name="tearDown" finished-at="2023-02-20T19:35:41 EST" duration-ms="2147" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.exelenter.class04._06HW2@4386f16]" started-at="2023-02-20T19:35:41 EST" name="setUp" finished-at="2023-02-20T19:35:42 EST" duration-ms="1252" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="deleteUsers(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.exelenter.class04._06HW2@4386f16]" started-at="2023-02-20T19:35:42 EST" name="deleteUsers" data-provider="readFromExcel" finished-at="2023-02-20T19:35:46 EST" duration-ms="4142" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[John]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Smith]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[johnSmith12]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[johnSmith_@2023!!!]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteUsers -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.exelenter.class04._06HW2@4386f16]" started-at="2023-02-20T19:35:46 EST" name="tearDown" finished-at="2023-02-20T19:35:48 EST" duration-ms="2167" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.exelenter.class04._06HW2 -->
+        </test-method> <!-- isNumberPalindrome -->
+      </class> <!-- javaTask.Palindrome -->
     </test> <!-- ExelenterTestNgProject -->
   </suite> <!-- Default Suite -->
 </testng-results>
