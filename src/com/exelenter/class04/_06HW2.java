@@ -71,7 +71,6 @@ public class _06HW2 extends BaseClass {
         String absolutePath = ExcelUtility.projectPath + "/testData/bo.xlsx";
         return ExcelUtility.readFromExcel(absolutePath, "Employee");
     }
-
 }
 
 /*

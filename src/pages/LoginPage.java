@@ -32,9 +32,17 @@ public class LoginPage extends BaseClass {
     @FindBy(id = "spanMessage")
     public WebElement emptyPassword;
 
+    @FindBy(id = "spanMessage")
+    public WebElement errorMessage;
+
     public void login_To_Website(String user, String pswd) {
         send_Text(username, ConfigReader.getProperties(user));
         send_Text(password, ConfigReader.getProperties(pswd));
+        click_clickAbility(loginBtn);
+    }
+    public void login_To_Website2(String user, String pswd) {
+        send_Text(username, user);
+        send_Text(password, pswd);
         click_clickAbility(loginBtn);
     }
 }
