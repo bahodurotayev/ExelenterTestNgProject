@@ -1,4 +1,5 @@
 package com.exelenter.class04;
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -6,14 +7,12 @@ import utils.BaseClass;
 import utils.ConfigReader;
 import utils.ExcelUtility;
 
-import java.util.ArrayList;
-
-import static pages.EmployeeListPage.*;
+import static pages.EmployeeListPage.deleteEmployeeFromList;
 import static utils.PageInitializer.*;
 
-public class _06HW extends BaseClass {
-    @Test(dataProvider ="addEmployee")
-    void addEmployees(String name, String lastName, String randomPassword){
+public class _06HW2 extends BaseClass {
+    @Test(dataProvider ="readFromExcel", groups = "smoke")
+    void addEmployees(String name, String lastName,String username, String randomPassword){
 
         loginPage.login_To_Website("user", "password");
 
@@ -29,9 +28,8 @@ public class _06HW extends BaseClass {
 
         click_clickAbility(addEmployeePage.chkLogin);
 
-        String username = name.substring(0, 3) + lastName.substring(0, 3);
         send_Text(addEmployeePage.userName, username);
-        System.out.println("Username   : " +username);
+        System.out.println("Username   : " + username);
         System.out.println("User Id    : " + addEmployeePage.employeeId.getAttribute("value"));
 
         send_Text(addEmployeePage.userPassword, randomPassword);
@@ -45,7 +43,7 @@ public class _06HW extends BaseClass {
 
         /*Assert.assertEquals(personalDetailedPage.personalEmployeeName.getAttribute("value"), name, "Employee with " + name + " did not add");
         screenshotFull(name);
-*/
+        */
         try {
             boolean headerDisplayed = personalDetailedPage.personalDetailsForm.isDisplayed();
             if(headerDisplayed){
@@ -62,22 +60,16 @@ public class _06HW extends BaseClass {
         }
 
     }
-    @Test(dependsOnMethods = "addEmployees", dataProvider = "addEmployee")
-    void deleteUsers(String name, String lastName, String password){
+    @Test(dependsOnMethods = "addEmployees", dataProvider = "readFromExcel")
+    void deleteUsers(String name, String lastName,String username, String password){
         loginPage.login_To_Website("user", "password");
         deleteEmployeeFromList(name, lastName);
     }
-    @DataProvider(name = "addEmployee")
-    Object[][] data(){
-        Object[][] userData = {
-                {"Johnny","Rip", randomStrongPassWord()},
-                {"Beth","Dutton", randomStrongPassWord()},
-                {"Ali","Vali", randomStrongPassWord()},
-                {"Carl","Roe", randomStrongPassWord()},
-                {"Ali","Vali", randomStrongPassWord()},
-                {"Taylor","Donn", randomStrongPassWord()},
-        };
-        return userData;
+
+    @DataProvider(name = "readFromExcel")
+    public Object[][] getDataFromExcel(){
+        String absolutePath = ExcelUtility.projectPath + "/testData/bo.xlsx";
+        return ExcelUtility.readFromExcel(absolutePath, "Employee");
     }
 
 }

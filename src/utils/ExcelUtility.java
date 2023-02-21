@@ -5,11 +5,11 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
-//we need to import the Apache POI
-public class ExcelUtility {
+
+public class ExcelUtility  {
+    //we need to import the Apache POI
     /* Order
         1.FilePath
         2.WorkBook
@@ -18,27 +18,47 @@ public class ExcelUtility {
         5.Cell
        (for each we will create a method)
     */
-     String projectPath = System.getProperty("user.dir");
-    FileInputStream fileInputStream;
-    Workbook workbook;
-    Sheet sheet;
-
-    void getFilePath(String filePath){
+    public static String projectPath = System.getProperty("user.dir");
+    private static FileInputStream fileInputStream;
+    private static Workbook workbook;
+    private static Sheet sheet;
+    private static void getFilePath(String filePath) {
         try {
-             fileInputStream = new FileInputStream(filePath);
-             workbook = new XSSFWorkbook(fileInputStream);
+            fileInputStream = new FileInputStream(filePath);
+            workbook = new XSSFWorkbook(fileInputStream);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
-    void getSheet(String sheetName){
+    private static void getSheet(String sheetName) {
         sheet = workbook.getSheet(sheetName);
     }
-    int rowCount(){
-        return sheet.getPhysicalNumberOfRows(); //This method return count of rows
+
+    private static int rowCount() {
+        return sheet.getPhysicalNumberOfRows();           // This method will return total count of rows.
     }
-    int colsCount(){
-        return sheet.getRow(0).getLastCellNum(); //This method return count of columns.
+
+    private static int colsCount() {
+        return sheet.getRow(0).getLastCellNum();       // This method will return total count of columns.
+    }
+
+    private static String getCell(int rowIndex, int columnIndex) {       // This method will read from a cell based on the index of given row and column.
+        return sheet.getRow(rowIndex).getCell(columnIndex).toString();
+    }
+
+    public static Object[][] readFromExcel(String filePath, String sheetName) {
+        getFilePath(filePath);
+        getSheet(sheetName);
+
+        int rows = rowCount();
+        int cols = colsCount();
+        Object[][] data = new Object[rows-1][cols];
+        for (int i = 1; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                data[i-1][j] = getCell(i, j);
+            }
+        }
+        return data;
     }
 }
