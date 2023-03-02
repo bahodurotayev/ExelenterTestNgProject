@@ -5,17 +5,22 @@ public class IsPalindrome {
         numberIsPalindrome(121);
     }
     static void numberIsPalindrome(int number){
-        int num = number;
+
         int reverse = 0;
-        while (num > 0){
-            num = num % 10;
-            reverse = reverse * 10 + num;
-            num = num / 10;
+        int reminder;
+        int temp = number;
+
+        while (temp != 0){
+            reminder = temp % 10;
+            reverse = reverse * 10 + reminder;
+            temp = temp / 10;
         }
+
         if (reverse == number){
             System.out.println("is palindrome");
         }else {
             System.out.println("is not palindrome");
         }
     }
+
 }
