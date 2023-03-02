@@ -17,7 +17,7 @@ public class _02HWorkLoginTestNegative extends BaseClass {
 
     @DataProvider(name = "loginTest")
     public Object[][] getDataFromExcel2(){
-        String absolutePath = ExcelUtility.projectPath + "/testData/Book1.xlsx";
-        return ExcelUtility.readFromExcel(absolutePath, "Sheet1");
+        String absolutePath = ExcelUtility.projectPath + "/testData/bo.xlsx";
+        return ExcelUtility.readFromExcel(absolutePath, "NegativeLoginTests");
     }
 }
